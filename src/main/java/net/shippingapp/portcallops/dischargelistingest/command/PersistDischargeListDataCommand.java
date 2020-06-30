@@ -1,5 +1,5 @@
 package net.shippingapp.portcallops.dischargelistingest.command;
 
-public class ParseLegacyDischargeFeedCommand {
+public class PersistDischargeListDataCommand {
     
 }
