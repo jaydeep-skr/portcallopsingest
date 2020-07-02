@@ -3,7 +3,7 @@ package net.shippingapp.portcallops.dischargelistingest.web;
 public class ApplicationInfo {
 
     String applicationName = "Port Call Operations - Container Discharge List Ingester" ;
-     String applicationVersion = "1.0.0" ;
+    String applicationVersion = "1.0.0" ;
 
     public String getApplicationName() {
         return applicationName;

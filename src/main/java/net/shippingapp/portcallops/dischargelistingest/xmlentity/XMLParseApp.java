@@ -14,6 +14,7 @@ public class XMLParseApp {
         JAXBContext jaxbContext = JAXBContext.newInstance(DischargeListDocument.class);
 
         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+        
         DischargeListDocument dischargeReport = (DischargeListDocument) jaxbUnmarshaller.unmarshal(xmlFilePath);
         System.out.println("Container Discharge List for Terminal = " + dischargeReport.getDischargeListData().getTerminalID());
         System.out.println(dischargeReport.getDischargeListData().getEstimatedTimeOfArrivalToPort());
