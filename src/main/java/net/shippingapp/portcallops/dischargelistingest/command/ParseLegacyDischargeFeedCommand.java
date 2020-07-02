@@ -34,6 +34,7 @@ public class ParseLegacyDischargeFeedCommand extends BaseCommand {
         } catch (Exception e) {
 
             e.printStackTrace();
+            throw new CommandException(e) ;
         }
 
         

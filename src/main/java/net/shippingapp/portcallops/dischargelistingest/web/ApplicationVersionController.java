@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import net.shippingapp.portcallops.dischargelistingest.command.ContextConstants;
 import net.shippingapp.portcallops.dischargelistingest.command.ParseLegacyDischargeFeedCommand;
+import net.shippingapp.portcallops.dischargelistingest.command.PersistDischargeListDataCommand;
 import net.shippingapp.portcallops.dischargelistingest.commandframework.Command;
 import net.shippingapp.portcallops.dischargelistingest.commandframework.CommandQueue;
 import net.shippingapp.portcallops.dischargelistingest.commandframework.CommandQueueContext;
@@ -31,6 +32,11 @@ public class ApplicationVersionController {
             Command parseLegacyDischargeFeedCommand = new ParseLegacyDischargeFeedCommand() ;
             parseLegacyDischargeFeedCommand.setQueueContext(queueContext);
             ingestQueue.addCommandToQueue(parseLegacyDischargeFeedCommand);
+
+            Command persistDischargeListDataCommand = new PersistDischargeListDataCommand() ;
+            persistDischargeListDataCommand.setQueueContext(queueContext);
+            ingestQueue.addCommandToQueue(persistDischargeListDataCommand) ;
+
             ingestQueue.runQueue();
 
         } catch (Exception e) {
