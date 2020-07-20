@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portcallopsingest-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: portcallopsingest
+  template:
+    metadata:
+      labels: # labels to select/identify the deployment
+        app: portcallopsingest
+    spec:     # pod spec                  
+      containers: 
+      - name: portcallopsingest
+        image: jsarkarazurecontainerregistry.azurecr.io/jaydeep-skr/portcallopsingest:latest
+        ports:
+        - containerPort: 8080
