@@ -11,4 +11,4 @@ RUN mkdir -p /home/AzureUser/portcallopsingest/xmldata
 COPY AMPS_discharge_as_XML_OMSLVTM_587_929W.xml  /home/AzureUser/portcallopsingest/xmldata/
 COPY --from=MAVEN_BUILD /build/target/dischargelistingest-0.0.1-SNAPSHOT.jar /home/AzureUser/portcallopsingest/bin/
 WORKDIR /home/AzureUser/portcallopsingest/bin
-ENTRYPOINT ["java","-Dserver.port=8080", "-Dapp.sample.xml.payload=file:/home/AzureUser/portcallopsingest/xmldata/AMPS_discharge_as_XML_OMSLVTM_587_929W.xml","-Dapp.keystore=/usr/local/openjdk-8/jre/lib/security/cacerts","dischargelistingest-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar", "-Dserver.port=8080", "-Dapp.sample.xml.payload=file:/home/AzureUser/portcallopsingest/xmldata/AMPS_discharge_as_XML_OMSLVTM_587_929W.xml","-Dapp.keystore=/usr/local/openjdk-8/jre/lib/security/cacerts","dischargelistingest-0.0.1-SNAPSHOT.jar"]
