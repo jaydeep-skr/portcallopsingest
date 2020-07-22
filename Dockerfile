@@ -3,6 +3,7 @@ COPY pom.xml /build/
 COPY src /build/src/
 WORKDIR /build/
 RUN mvn clean package -DskipTests
+
 FROM openjdk:8-jdk-alpine
 ARG JAR_FILE
 ADD ${JAR_FILE} dischargelistingest-0.0.1-SNAPSHOT.jar
